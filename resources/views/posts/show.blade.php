@@ -20,6 +20,18 @@
             <a href="{{ route('posts.index') }}" class="text-white py-3 px-5 bg-purple-600 hover:bg-purple-700 rounded-lg">All Posts</a>
         </div>
 
+        <div class="mt-10">
+            <h2 class="text-2xl font-bold mb-5">Comments</h2>
+            @foreach ($post->comments as $comment)
+                <div class="block max-w-xl p-6 bg-white border border-gray-200 rounded-lg shadow-sm  dark:bg-gray-800 dark:border-gray-700 mx-auto mb-4">
+                    <p class="font-normal text-gray-700 dark:text-gray-400">
+                        <span class="text-green-500">Comment by</span> {{ $comment->author }}: 
+                        <br>
+                        <span class="text-white">{{ $comment->body }}</span>
+                    </p>
+                </div>
+            @endforeach
+
     </div>
 
 </x-layout>

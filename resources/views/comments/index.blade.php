@@ -11,7 +11,7 @@
                     {{ $comment->body }}
                 </p>
                 <p class="font-normal text-gray-700 dark:text-gray-400">
-                    Post title: {{ $comment->post->title }}
+                    <span class="text-yellow-500">Post title:</span> {{ $comment->post->title }}
                 </p>
             </a>
         @endforeach
