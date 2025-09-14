@@ -28,7 +28,9 @@
             <a href="{{ route('welcome') }}" class="text-sm/6 font-semibold text-white">Home</a>
             <a href="{{ route('developers.index') }}" class="text-sm/6 font-semibold text-white">Developers</a>
             <a href="{{ route('posts.index') }}" class="text-sm/6 font-semibold text-white">Posts</a>
-            <a href="{{ route('posts.create') }}" class="text-sm/6 font-semibold text-white">Create One</a>
+            <a href="{{ route('comments.index') }}" class="text-sm/6 font-semibold text-white">Comments</a>
+            <a href="{{ route('posts.create') }}" class="text-sm/6 font-semibold text-white">Create Post</a>
+            <a href="{{ route('comments.create') }}" class="text-sm/6 font-semibold text-white">Create Comment</a>
             <a href="{{ route('posts.reset') }}" class="text-sm/6 font-semibold text-white">Reset</a>
         </el-popover-group>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">

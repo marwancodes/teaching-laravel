@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DevelopersController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -19,3 +20,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/posts/delete/{id}',  'delete')->name('posts.delete');
     Route::get('/posts/reset',  'reset')->name('posts.reset');
 });
+
+
+Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
+Route::get('/comments/create', [CommentController::class, 'create'])->name('comments.create');
