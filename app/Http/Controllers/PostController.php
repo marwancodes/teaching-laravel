@@ -17,10 +17,10 @@ class PostController extends Controller
     function create () {
 
         $post = Post::create([
-            'title' => 'Tech News',
-            'media' => 'Channel 4',
-            'content' => 'This is a tech news content.',
-            'author' => 'Mike'
+            'title' => 'USA makes history',
+            'media' => 'CNN',
+            'content' => 'This is politic news content.',
+            'author' => 'Adil'
         ]);
 
         return redirect()->route('posts.index');
