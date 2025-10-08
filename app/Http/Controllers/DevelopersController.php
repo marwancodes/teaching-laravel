@@ -9,7 +9,7 @@ class DevelopersController extends Controller
 {
     public function index() {
 
-        $devs = Developer::orderBy('created_at', 'desc')->paginate(10);
+        $devs = Developer::orderBy('created_at', 'desc')->paginate(5);
 
         return view('developers.index', ['developers' => $devs]);
     }
@@ -34,9 +34,9 @@ class DevelopersController extends Controller
     public function create() {
 
         $developer = Developer::create([
-            'name'=> 'Sara',
+            'name'=> 'anass',
             'age'=> 26,
-            'email'=> 'saraa@gmail.com',
+            'email'=> 'anassa@gmail.com',
             'stack'=> 'Fullstack',
         ]);
 

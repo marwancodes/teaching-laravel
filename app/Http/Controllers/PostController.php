@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    use HasFactory;
+
+    // Endpoints
     function index () {
 
         $data = Post::all();
@@ -16,12 +20,14 @@ class PostController extends Controller
 
     function create () {
 
-        $post = Post::create([
-            'title' => 'USA makes history',
-            'media' => 'CNN',
-            'content' => 'This is politic news content.',
-            'author' => 'Adil'
-        ]);
+        // $post = Post::create([
+        //     'title' => 'USA makes history',
+        //     'media' => 'CNN',
+        //     'content' => 'This is politic news content.',
+        //     'author' => 'Adil'
+        // ]);
+
+        Post::factory(100)->create();
 
         return redirect()->route('posts.index');
     }
@@ -57,3 +63,8 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 }
+
+
+
+
+// index, show, edit, update, delete

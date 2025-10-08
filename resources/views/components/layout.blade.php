@@ -26,6 +26,7 @@
         </div>
         <el-popover-group class="hidden lg:flex lg:gap-x-12">
             <a href="{{ route('welcome') }}" class="text-sm/6 font-semibold text-white">Home</a>
+            <a href="{{route('warriors.index')}}" class="text-sm/6 font-semibold text-white" >warriors</a>
             <a href="{{ route('developers.index') }}" class="text-sm/6 font-semibold text-white">Developers</a>
             <a href="{{ route('posts.index') }}" class="text-sm/6 font-semibold text-white">Posts</a>
             <a href="{{ route('comments.index') }}" class="text-sm/6 font-semibold text-white">Comments</a>

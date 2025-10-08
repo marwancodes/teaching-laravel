@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DevelopersController;
+use App\Http\Controllers\PoksController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
@@ -18,8 +19,8 @@ Route::get('/developers/delete/{id}', [DevelopersController::class, 'delete'])->
 
 
 
-
-
+// warriors
+Route::get('/warriors', [PoksController::class, 'index'])->name('warriors.index');
 
 
 Route::controller(PostController::class)->group(function () {
@@ -30,6 +31,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/posts/delete/{id}',  'delete')->name('posts.delete');
     Route::get('/posts/reset',  'reset')->name('posts.reset');
 });
+
 
 
 Route::get('/comments', [CommentController::class, 'index'])->name('comments.index');
