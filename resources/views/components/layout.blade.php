@@ -26,16 +26,30 @@
         </div>
         <el-popover-group class="hidden lg:flex lg:gap-x-12">
             <a href="{{ route('welcome') }}" class="text-sm/6 font-semibold text-white">Home</a>
-            <a href="{{route('warriors.index')}}" class="text-sm/6 font-semibold text-white" >warriors</a>
+            {{-- <a href="{{route('warriors.index')}}" class="text-sm/6 font-semibold text-white" >warriors</a> --}}
             <a href="{{ route('developers.index') }}" class="text-sm/6 font-semibold text-white">Developers</a>
             <a href="{{ route('posts.index') }}" class="text-sm/6 font-semibold text-white">Posts</a>
-            <a href="{{ route('comments.index') }}" class="text-sm/6 font-semibold text-white">Comments</a>
-            <a href="{{ route('posts.create') }}" class="text-sm/6 font-semibold text-white">Create Post</a>
+            {{-- <a href="{{ route('comments.index') }}" class="text-sm/6 font-semibold text-white">Comments</a> --}}
+            {{-- <a href="{{ route('posts.create') }}" class="text-sm/6 font-semibold text-white">Create Post</a>
             <a href="{{ route('comments.create') }}" class="text-sm/6 font-semibold text-white">Create Comment</a>
-            <a href="{{ route('posts.reset') }}" class="text-sm/6 font-semibold text-white">Reset</a>
+            <a href="{{ route('posts.reset') }}" class="text-sm/6 font-semibold text-white">Reset</a> --}}
         </el-popover-group>
-        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" class="text-sm/6 font-semibold text-white">Log in <span aria-hidden="true">&rarr;</span></a>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
+            @if (!auth()->user())
+                <a href="{{ route('auth.register') }}" class="text-sm/6 font-semibold bg-white py-2 px-4 rounded">Register</a>
+                <a href="{{ route('auth.login') }}" class="text-sm/6 font-semibold text-white bg-indigo-500 py-2 px-4 rounded">Login</a>
+            @endif
+            
+            @auth
+                <p class="text-sm/6 font-semibold text-white py-2 px-4 ">Hello, {{ auth()->user()->name }}</p>
+            @endauth
+
+            @if (auth()->user())
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="text-sm/6 font-semibold text-white bg-red-500 py-2 px-4 rounded cursor-pointer">Logout</button>
+                </form>
+            @endif
         </div>
     </nav>
 

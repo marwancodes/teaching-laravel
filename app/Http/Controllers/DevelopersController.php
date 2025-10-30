@@ -22,23 +22,29 @@ class DevelopersController extends Controller
         return view('developers.show', ['developer' => $data]);
     }
 
-    public function delete($id) {
-
-        $developer = Developer::findOrFail($id);
-        $developer->delete();
-
-        // return redirect('developers.index');
-        return redirect()->route('developers.index');
-    }
+    
 
     public function create() {
 
-        $developer = Developer::create([
-            'name'=> 'anass',
-            'age'=> 26,
-            'email'=> 'anassa@gmail.com',
-            'stack'=> 'Fullstack',
+        // $developer = Developer::create([
+        //     'name'=> 'anass',
+        //     'age'=> 26,
+        //     'email'=> 'anassa@gmail.com',
+        //     'stack'=> 'Fullstack',
+        // ]);
+
+        return view('developers.create');
+    }
+
+    public function store(Request $request) {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'age' => 'required|integer|min:18',
+            'email' => 'required|email|unique:developers,email',
+            'stack' => 'required|max:255',
         ]);
+
+        Developer::create($validated);
 
         return redirect()->route('developers.index');
     }
@@ -54,6 +60,15 @@ class DevelopersController extends Controller
             'stack'=> 'Fullstack',
         ]);
 
+        return redirect()->route('developers.index');
+    }
+
+    public function delete($id) {
+
+        $developer = Developer::findOrFail($id);
+        $developer->delete();
+
+        // return redirect('developers.index');
         return redirect()->route('developers.index');
     }
 }

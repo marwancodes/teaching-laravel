@@ -1,5 +1,13 @@
 <x-layout>
-    <h1 class="bg-[#6366f1] text-white font-semibold px-5">Developers Page</h1>
+    <div class="mb-5 flex justify-between items-center">
+        @auth
+        <p>User: {{ Auth::user()->email }}</p>
+        @endauth
+        <h1 class="bg-[#6366f1] text-white font-semibold px-5">Developers Page</h1>
+        <a href="{{ route('developers.create') }}" class="py-2 px-4 bg-green-600 hover:bg-green-700 text-white rounded-lg">
+            Add new developer
+        </a>
+    </div>
 
     <div class="flex flex-wrap gap-6 justify-center">
         @foreach ($developers as $developer)
